@@ -1,5 +1,6 @@
-import sort_algorithm
-from generate_random_numbers import get_random_numbers
+from utils.library.sorting_power import Sorting_power as SP
+from utils.functions.generate_random_numbers import get_random_numbers
+from utils.functions.show_numbers import show_five_first_numbers
 from time import sleep
 
 # begin = timeit.default_timer()
@@ -7,14 +8,9 @@ from time import sleep
 # print("Duration: %f" % (end - begin))
 
 
-def show_five_first_numbers(list_numbers):
-    for index in range(5):
-        print(f">> {index+1}°) {list_numbers[index]}")
-
-
 def main():
     case = 0
-    while case != 5:
+    while case != 6:
         print(
             """Which size dataset do you want us to sort? Select one below :) 
 [ 1 ] 100
@@ -27,8 +23,16 @@ def main():
         )
         case = int(input(">>>> What is your choice? "))
         if case == 1:
-            print("A) The first five numbers of the set with not sorted elements:")
-            show_five_first_numbers(get_random_numbers(100))
+            print(
+                """You choosed case 1 - equal a 100 length list of elements!
+A) The first five numbers of the set with NOT sorted elements:"""
+            )
+            random_list_elements = get_random_numbers(100)
+            show_five_first_numbers(random_list_elements)
+
+            print("\nB) The first five numbers of sorted list:")
+            sorted_list_elements = SP.Bubble_sort(random_list_elements)
+            show_five_first_numbers(sorted_list_elements)
         elif case == 2:
             print("teste")
         elif case == 6:
