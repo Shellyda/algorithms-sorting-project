@@ -29,11 +29,10 @@ def main():
 A) The first five numbers of the set with NOT sorted elements:"""
             )
             random_list = get_random_numbers(100)
-            five_first = random_list[0:5]
-            show_five_first_numbers(five_first)
+            show_five_first_numbers(random_list)
 
             print("\nB) The first five numbers of sorted list:")
-            sorted_list = SP.Bubble_sort(five_first)
+            sorted_list = SP.Bubble_sort(random_list)
             show_five_first_numbers(sorted_list)
         elif case == 2:
             random_list = get_random_numbers(100)
