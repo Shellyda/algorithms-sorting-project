@@ -1,4 +1,4 @@
-from utils.library.sorting_power import Sorting_power
+from utils.library.sorting_power import Sorting_power as SP
 from utils.functions.generate_random_numbers import get_random_numbers
 from utils.functions.show_numbers import show_five_first_numbers
 from time import sleep
@@ -9,7 +9,6 @@ from time import sleep
 
 
 def main():
-    SP = Sorting_power()
     case = 0
     while case != 6:
         print(
@@ -37,6 +36,7 @@ A) The first five numbers of the set with NOT sorted elements:"""
         elif case == 2:
             random_list = get_random_numbers(100)
             sorted_list = SP.Merge_sort(random_list)
+            print(sorted_list)
         elif case == 6:
             print("exiting program...")
         else:

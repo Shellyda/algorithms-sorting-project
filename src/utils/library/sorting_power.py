@@ -2,7 +2,7 @@ class Sorting_power:
     def __init__(self):
         self.head = None
 
-    def Bubble_sort(self, list_elements):
+    def Bubble_sort(list_elements):
         if not len(list_elements) == 0:
             count = 0
             swap_place = True
@@ -19,16 +19,17 @@ class Sorting_power:
             return list_elements
 
     def Insertion_sort(list_elements):
-        for i in range(1, len(list_elements)):
-            aux = list_elements[i]
-            j = i - 1
-            while aux < list_elements[j] and j >= 0:
-                list_elements[j + 1] = list_elements[j]
-                j -= 1
-            list_elements[j + 1] = aux
-        return list_elements
+        if not len(list_elements) == 0:
+            for i in range(1, len(list_elements)):
+                aux = list_elements[i]
+                j = i - 1
+                while aux < list_elements[j] and j >= 0:
+                    list_elements[j + 1] = list_elements[j]
+                    j -= 1
+                list_elements[j + 1] = aux
+            return list_elements
 
-    def Merge_sort(self, list_elements):
+    def Merge_sort(list_elements):
         if not len(list_elements) == 0:
             middle = len(list_elements) // 2
             left_part = list_elements[:middle]
