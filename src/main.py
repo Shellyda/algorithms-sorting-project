@@ -29,22 +29,21 @@ def main():
                 """You choosed case 1 - equal a 100 length list of elements!
 A) The first five numbers of the set with NOT sorted elements:"""
             )
-            random_list_elements = get_random_numbers(100)
-            show_five_first_numbers(random_list_elements)
+            random_list = get_random_numbers(100)
+            show_five_first_numbers(random_list)
             print("\nB) The first five numbers of sorted list:")
 
-            #Ordenacao e time: bubble sort
+            # Ordenacao e time: bubble sort
             begin = timeit.default_timer()
-            sorted_list_elements = SP.Bubble_sort(random_list_elements)
-            end = timeit.default_timer() - begin
-            show_five_first_numbers(sorted_list_elements)
+            sorted_list = SP.Bubble_sort(random_list)
+            end = timeit.default_timer()
+            show_five_first_numbers(sorted_list)
 
-            print("\nC) Runtime:")
-            print("Tempo de execução Bubble Sort: {} segundos".format(end))
+            print("\nC) Runtime of Bubble Sort: {} seconds".format(end - begin))
 
         elif case == 2:
             random_list_elements2 = get_random_numbers(1000)
-            #Ordenacao e time: bubble sort
+            # Ordenacao e time: bubble sort
             begin = timeit.default_timer()
             sorted_list_elements2 = SP.Bubble_sort(random_list_elements2)
             end = timeit.default_timer() - begin
@@ -52,7 +51,7 @@ A) The first five numbers of the set with NOT sorted elements:"""
 
         elif case == 3:
             random_list_elements3 = get_random_numbers(10000)
-            #Ordenacao e time: bubble sort
+            # Ordenacao e time: bubble sort
             begin = timeit.default_timer()
             sorted_list_elements3 = SP.Bubble_sort(random_list_elements3)
             end = timeit.default_timer() - begin
