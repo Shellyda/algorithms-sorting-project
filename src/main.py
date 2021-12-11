@@ -5,10 +5,6 @@ from utils.functions.generate_random_numbers import get_random_numbers
 from utils.functions.show_numbers import show_five_first_numbers
 from time import sleep
 
-# begin = timeit.default_timer()
-# end = timeit.default_timer()
-# print("Duration: %f" % (end - begin))
-
 
 def main():
     case = 0
@@ -66,13 +62,17 @@ A) The first five numbers of the set with NOT sorted elements:"""
             print("Tempo de execução Bubble Sort: {} segundos".format(end))
 
         elif case == 5:
-            random_list_elements5 = get_random_numbers(1000000)
+            random_list = get_random_numbers(1000000)
             # Ordenacao e time: bubble sort
             begin = timeit.default_timer()
-            sorted_list_elements5 = SP.Bubble_sort(random_list_elements5)
+            sorted_list = SP.Bubble_sort(random_list)
             end = timeit.default_timer() - begin
             print("Tempo de execução Bubble Sort: {} segundos".format(end))
 
+            print("\nB) The first five numbers of sorted list:")
+            show_five_first_numbers(sorted_list)
+        elif case == 6:
+            print("exiting program...")
         else:
             print("not allowed option! :( Choose other...")
         sleep(1.5)
