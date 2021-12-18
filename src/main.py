@@ -1,8 +1,8 @@
 import timeit
 
-from utils.library.sorting_power import Sorting_power as SP
-from utils.functions.generate_random_numbers import get_random_numbers
-from utils.functions.show_numbers import show_five_first_numbers
+from src.utils.library.sorting_power import Sorting_power as SP
+from src.utils.functions.generate_random_numbers import get_random_numbers
+from src.utils.functions.show_numbers import show_five_first_numbers
 from time import sleep
 
 
