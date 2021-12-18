@@ -49,6 +49,7 @@ class Sorting_power:
                     min_index = right
 
             list_elements[index], list_elements[min_index] = list_elements[min_index], list_elements[index]
+            return list_elements
 
             while i < len(left_part) and j < len(right_part):
                 if left_part[i] < right_part[j]:
