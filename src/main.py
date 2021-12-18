@@ -1,8 +1,7 @@
-import timeit
-
+import numpy as np
 from src.utils.library.sorting_power import Sorting_power as SP
-from src.utils.functions.generate_random_numbers import get_random_numbers
 from src.utils.functions.show_numbers import show_five_first_numbers
+from src.utils.library.time import List
 from time import sleep
 
 
@@ -25,52 +24,125 @@ def main():
                 """You choosed case 1 - equal a 100 length list of elements!
 A) The first five numbers of the set with NOT sorted elements:"""
             )
-            random_list = get_random_numbers(100)
+            random_list = List.recem(100)
             show_five_first_numbers(random_list)
-            print("\nB) The first five numbers of sorted list:")
 
-            # Ordenacao e time: bubble sort
-            begin = timeit.default_timer()
-            sorted_list = SP.Bubble_sort(random_list)
-            end = timeit.default_timer()
+            np.save('algoritmo100.npy', random_list)  #save
+            arrayBubble = np.load('algoritmo100.npy')  # load
+            arrayInsertion = np.load('algoritmo100.npy')
+            arrayMerge = np.load('algoritmo100.npy')
+            arraySelection = np.load('algoritmo100.npy')
+
+            array5 = random_list[0:5]
+            #np.save('algoritmo5.npy', array5)  #save five
+            #arrayFive = np.load('algoritmo5.npy')
+            #print(arrayFive)
+            print("\nB) The first five numbers of sorted list:")
+            sorted_list = SP.Bubble_sort(array5)
             show_five_first_numbers(sorted_list)
 
-            print("\nC) Runtime of Bubble Sort: {} seconds".format(end - begin))
+            print("\nRuntime:")
+            print("\nBuble Sort:")
+            List.ordering_time(arrayBubble, SP.Bubble_sort)
+
+            print("\nInsertion Sort:")
+            List.ordering_time(arrayInsertion, SP.Insertion_sort)
+
+            print("\nMerge Sort:")
+            List.ordering_time(arrayMerge, SP.Merge_sort)
+
+            print("\nSelection Sort:")
+            List.ordering_time(arraySelection, SP.selection_sort)
+
 
         elif case == 2:
-            random_list_elements2 = get_random_numbers(1000)
-            # Ordenacao e time: bubble sort
-            begin = timeit.default_timer()
-            sorted_list_elements2 = SP.Bubble_sort(random_list_elements2)
-            end = timeit.default_timer() - begin
-            print("Tempo de execução Bubble Sort: {} segundos".format(end))
+            print("\nRuntime:")
+            array = List.recem(1000)
+            np.save('algoritmo2.npy', array)  #save
+
+            arrayBubble = np.load('algoritmo2.npy') #load
+            arrayInsertion = np.load('algoritmo2.npy')
+            arrayMerge = np.load('algoritmo2.npy')
+            arraySelection = np.load('algoritmo2.npy')
+
+            print("\nBuble Sort:")
+            List.ordering_time(arrayBubble, SP.Bubble_sort)
+
+            print("\nInsertion Sort:")
+            List.ordering_time(arrayInsertion, SP.Insertion_sort)
+
+            print("\nMerge Sort:")
+            List.ordering_time(arrayMerge, SP.Merge_sort)
+
+            print("\nSelection Sort:")
+            List.ordering_time(arraySelection, SP.selection_sort)
+
 
         elif case == 3:
-            random_list_elements3 = get_random_numbers(10000)
-            # Ordenacao e time: bubble sort
-            begin = timeit.default_timer()
-            sorted_list_elements3 = SP.Bubble_sort(random_list_elements3)
-            end = timeit.default_timer() - begin
-            print("Tempo de execução Bubble Sort: {} segundos".format(end))
+            print("\nRuntime:")
+            array = List.recem(10000)
+            np.save('algoritmo3.npy', array)  # save
+
+            arrayBubble = np.load('algoritmo3.npy')  # load
+            arrayInsertion = np.load('algoritmo3.npy')
+            arrayMerge = np.load('algoritmo3.npy')
+            arraySelection = np.load('algoritmo3.npy')
+
+            print("\nBuble Sort:")
+            List.ordering_time(arrayBubble, SP.Bubble_sort)
+
+            print("\nInsertion Sort:")
+            List.ordering_time(arrayInsertion, SP.Insertion_sort)
+
+            print("\nMerge Sort:")
+            List.ordering_time(arrayMerge, SP.Merge_sort)
+
+            print("\nSelection Sort:")
+            List.ordering_time(arraySelection, SP.selection_sort)
 
         elif case == 4:
-            random_list_elements4 = get_random_numbers(100000)
-            # Ordenacao e time: bubble sort
-            begin = timeit.default_timer()
-            sorted_list_elements4 = SP.Bubble_sort(random_list_elements4)
-            end = timeit.default_timer() - begin
-            print("Tempo de execução Bubble Sort: {} segundos".format(end))
+            print("\nRuntime:")
+            array = List.recem(100000)
+            np.save('algoritmo4.npy', array)  # save
+
+            arrayBubble = np.load('algoritmo4.npy')  # load
+            arrayInsertion = np.load('algoritmo4.npy')
+            arrayMerge = np.load('algoritmo4.npy')
+            arraySelection = np.load('algoritmo4.npy')
+
+            print("\nBuble Sort:")
+            List.ordering_time(arrayBubble, SP.Bubble_sort)
+
+            print("\nInsertion Sort:")
+            List.ordering_time(arrayInsertion, SP.Insertion_sort)
+
+            print("\nMerge Sort:")
+            List.ordering_time(arrayMerge, SP.Merge_sort)
+
+            print("\nSelection Sort:")
+            List.ordering_time(arraySelection, SP.selection_sort)
 
         elif case == 5:
-            random_list = get_random_numbers(1000000)
-            # Ordenacao e time: bubble sort
-            begin = timeit.default_timer()
-            sorted_list = SP.Bubble_sort(random_list)
-            end = timeit.default_timer() - begin
-            print("Tempo de execução Bubble Sort: {} segundos".format(end))
+            print("\nRuntime:")
+            array = List.recem(1000000)
+            np.save('algoritmo5.npy', array)  # save
 
-            print("\nB) The first five numbers of sorted list:")
-            show_five_first_numbers(sorted_list)
+            arrayBubble = np.load('algoritmo5.npy')  # load
+            arrayInsertion = np.load('algoritmo5.npy')
+            arrayMerge = np.load('algoritmo5.npy')
+            arraySelection = np.load('algoritmo5.npy')
+
+            print("\nBuble Sort:")
+            List.ordering_time(arrayBubble, SP.Bubble_sort)
+
+            print("\nInsertion Sort:")
+            List.ordering_time(arrayInsertion, SP.Insertion_sort)
+
+            print("\nMerge Sort:")
+            List.ordering_time(arrayMerge, SP.Merge_sort)
+
+            print("\nSelection Sort:")
+            List.ordering_time(arraySelection, SP.selection_sort)
         elif case == 6:
             print("exiting program...")
         else:
