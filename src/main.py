@@ -78,9 +78,7 @@ A) The first five numbers of the set with NOT sorted elements:"""
         sleep(1.5)
         print("=-=" * 22)
 
-
     print("End of program :) See you!")
 
 
 main()
-
