@@ -40,6 +40,7 @@ class Sorting_power:
 
             Iterator_main = i = j = 0
 
+
             while i < len(left_part) and j < len(right_part):
                 if left_part[i] < right_part[j]:
                     list_elements[Iterator_main] = left_part[i]
@@ -59,3 +60,14 @@ class Sorting_power:
                 j += 1
                 Iterator_main += 1
             return list_elements
+
+    def selection_sort(list_elements):
+        for index in range(0, len(list_elements)):
+            min_index = index
+
+            for right in range(index + 1, len(list_elements)):
+                if list_elements[right] < list_elements[min_index]:
+                    min_index = right
+
+            list_elements[index], list_elements[min_index] = list_elements[min_index], list_elements[index]
+        return list_elements
