@@ -1,8 +1,8 @@
 import timeit
-from src.utils.functions.index import get_random_numbers
+from utils.functions.index import get_random_numbers
 
 
-class Get_duration_time:
+class Get_duration_execution_time:
     def __init__(self):
         self.head = None
 

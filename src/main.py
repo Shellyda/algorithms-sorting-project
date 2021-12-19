@@ -1,6 +1,12 @@
 import numpy as np
-from src.utils.functions.index import get_random_numbers, show_five_first_numbers
-from src.utils.library.index import Get_duration_time, Sorting_power as SP
+from utils.functions.index import get_random_numbers, show_five_first_numbers
+from utils.libraries.index import (
+    Bubble_sort,
+    Merge_sort,
+    Selection_sort,
+    Insertion_sort,
+    Get_duration_execution_time,
+)
 from time import sleep
 
 
@@ -23,7 +29,7 @@ def main():
                 """You choosed case 1 - equal a 100 length list of elements!
 A) The first five numbers of the set with NOT sorted elements:"""
             )
-            random_list = Get_duration_time.creation_first_random_list(100)
+            random_list = Get_duration_execution_time.creation_first_random_list(100)
             show_five_first_numbers(random_list)
             teste = SP(random_list)
             print("\nB) The first five numbers of sorted list:")
@@ -33,21 +39,21 @@ A) The first five numbers of the set with NOT sorted elements:"""
             print(random_list)
             print("\nRuntime:")
             print("\nBuble Sort:")
-            Get_duration_time.ordering_time(teste.Bubble_sort)
+            Get_duration_execution_time.ordering_time(teste.Bubble_sort)
             print(random_list)
 
             # print("\nInsertion Sort:")
-            # Get_duration_time.ordering_time(random_list, SP.Insertion_sort)
+            # Get_duration_execution_time.ordering_time(random_list, SP.Insertion_sort)
 
             # print("\nMerge Sort:")
-            # Get_duration_time.ordering_time(random_list, SP.Merge_sort)
+            # Get_duration_execution_time.ordering_time(random_list, SP.Merge_sort)
 
             # print("\nSelection Sort:")
-            # Get_duration_time.ordering_time(random_list, SP.selection_sort)
+            # Get_duration_execution_time.ordering_time(random_list, SP.selection_sort)
 
         elif case == 2:
             print("\nRuntime:")
-            array = Get_duration_time.creation_first_random_list(1000)
+            array = Get_duration_execution_time.creation_first_random_list(1000)
             np.save("algoritmo2.npy", array)  # save
 
             arrayBubble = np.load("algoritmo2.npy")  # load
@@ -56,64 +62,64 @@ A) The first five numbers of the set with NOT sorted elements:"""
             arraySelection = np.load("algoritmo2.npy")
 
             print("\nBuble Sort:")
-            Get_duration_time.ordering_time(arrayBubble, SP.Bubble_sort)
+            Get_duration_execution_time.ordering_time(arrayBubble, SP.Bubble_sort)
 
             print("\nInsertion Sort:")
-            Get_duration_time.ordering_time(arrayInsertion, SP.Insertion_sort)
+            Get_duration_execution_time.ordering_time(arrayInsertion, SP.Insertion_sort)
 
             print("\nMerge Sort:")
-            Get_duration_time.ordering_time(arrayMerge, SP.Merge_sort)
+            Get_duration_execution_time.ordering_time(arrayMerge, SP.Merge_sort)
 
             print("\nSelection Sort:")
-            Get_duration_time.ordering_time(arraySelection, SP.selection_sort)
+            Get_duration_execution_time.ordering_time(arraySelection, SP.selection_sort)
 
         elif case == 3:
             print("\nRuntime:")
-            array = Get_duration_time.creation_first_random_list(10000)
+            array = Get_duration_execution_time.creation_first_random_list(10000)
 
             print("\nBuble Sort:")
-            Get_duration_time.ordering_time(array, SP.Bubble_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
 
             print("\nInsertion Sort:")
-            Get_duration_time.ordering_time(array, SP.Insertion_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
 
             print("\nMerge Sort:")
-            Get_duration_time.ordering_time(array, SP.Merge_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
 
             print("\nSelection Sort:")
-            Get_duration_time.ordering_time(array, SP.selection_sort)
+            Get_duration_execution_time.ordering_time(array, SP.selection_sort)
 
         elif case == 4:
             print("\nRuntime:")
-            array = Get_duration_time.creation_first_random_list(100000)
+            array = Get_duration_execution_time.creation_first_random_list(100000)
 
             print("\nBuble Sort:")
-            Get_duration_time.ordering_time(array, SP.Bubble_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
 
             print("\nInsertion Sort:")
-            Get_duration_time.ordering_time(array, SP.Insertion_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
 
             print("\nMerge Sort:")
-            Get_duration_time.ordering_time(array, SP.Merge_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
 
             print("\nSelection Sort:")
-            Get_duration_time.ordering_time(array, SP.selection_sort)
+            Get_duration_execution_time.ordering_time(array, SP.selection_sort)
 
         elif case == 5:
             print("\nRuntime:")
-            array = Get_duration_time.creation_first_random_list(1000000)
+            array = Get_duration_execution_time.creation_first_random_list(1000000)
 
             print("\nBuble Sort:")
-            Get_duration_time.ordering_time(array, SP.Bubble_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
 
             print("\nInsertion Sort:")
-            Get_duration_time.ordering_time(array, SP.Insertion_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
 
             print("\nMerge Sort:")
-            Get_duration_time.ordering_time(array, SP.Merge_sort)
+            Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
 
             print("\nSelection Sort:")
-            Get_duration_time.ordering_time(array, SP.selection_sort)
+            Get_duration_execution_time.ordering_time(array, SP.selection_sort)
         elif case == 6:
             print("exiting program...")
         else:

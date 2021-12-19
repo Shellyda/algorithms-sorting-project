@@ -1,6 +1,0 @@
-from utils.library.Get_duration_execution_time import Get_duration_time
-from utils.library.Sorting_power import Sorting_power
-from Bubble_sort import Bubble_sort
-from Insertion_sort import Insertion_sort
-from Merge_sort import Merge_sort
-from Selection_sort import Selection_sort
