@@ -1,6 +1,6 @@
 import numpy as np
 from src.utils.functions.index import get_random_numbers, show_five_first_numbers
-from src.utils.library.index import Get_duration_time, Sorting_power
+from src.utils.library.index import Get_duration_time, Sorting_power as SP
 from time import sleep
 
 

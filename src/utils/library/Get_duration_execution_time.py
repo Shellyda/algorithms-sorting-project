@@ -1,5 +1,5 @@
 import timeit
-from src.utils.functions.generate_random_numbers import get_random_numbers
+from src.utils.functions.index import get_random_numbers
 
 
 class Get_duration_time:
