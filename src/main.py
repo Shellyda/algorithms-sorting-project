@@ -1,4 +1,5 @@
 import numpy as np
+from time import sleep
 from utils.functions.index import get_random_numbers, show_five_first_numbers
 from utils.libraries.index import (
     Bubble_sort,
@@ -7,8 +8,8 @@ from utils.libraries.index import (
     Insertion_sort,
     Get_duration_execution_time,
 )
-from time import sleep
 
+BS = Bubble_sort()
 
 def main():
     case = 0
@@ -25,22 +26,18 @@ def main():
         )
         case = int(input(">>>> What is your choice? "))
         if case == 1:
-            print(
-                """You choosed case 1 - equal a 100 length list of elements!
-A) The first five numbers of the set with NOT sorted elements:"""
-            )
-            random_list = Get_duration_execution_time.creation_first_random_list(100)
-            show_five_first_numbers(random_list)
-            teste = SP(random_list)
+            print("\nYou choosed case 1 - equal a 100 length list of elements!\n")
+            first_random_list = Get_duration_execution_time.creation_first_random_list(100)
+            print("\nA) The first five numbers of the set with NOT sorted elements:")
+            show_five_first_numbers(first_random_list)
+
             print("\nB) The first five numbers of sorted list:")
-            sorted_list = teste.Bubble_sort()
+            sorted_list = BS.Ascending_ordering(first_random_list)
             show_five_first_numbers(sorted_list)
 
-            print(random_list)
             print("\nRuntime:")
-            print("\nBuble Sort:")
-            Get_duration_execution_time.ordering_time(teste.Bubble_sort)
-            print(random_list)
+            print("\nBubble Sort:")
+            Get_duration_execution_time.ordering(BS.Ascending_ordering, get_random_numbers(100))
 
             # print("\nInsertion Sort:")
             # Get_duration_execution_time.ordering_time(random_list, SP.Insertion_sort)

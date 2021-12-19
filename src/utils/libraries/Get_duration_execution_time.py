@@ -6,15 +6,16 @@ class Get_duration_execution_time:
     def __init__(self):
         self.head = None
 
-    def creation_first_random_list(random_list):
+    def creation_first_random_list(length):
         begin = timeit.default_timer()
-        random_list = get_random_numbers(random_list)
+        first_random_list = get_random_numbers(length)
         end = timeit.default_timer()
-        print("Tempo de execução recém criado: {} segundos".format(end - begin))
+        print("Time of executin newly created random list of numbers with {} length: {} seconds".format(length,end - begin))
+        return first_random_list
 
-    def ordering(algorithm):
+    def ordering(algorithm, random_list):
         begin = timeit.default_timer()
-        algorithm()
+        algorithm(random_list)
         end = timeit.default_timer()
         print(
             "Tempo de execução ordenado do menor para o maior: {} segundos".format(
