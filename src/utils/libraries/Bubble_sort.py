@@ -1,7 +1,4 @@
 class Bubble_sort:
-    def __init__(self):
-        self.list_elements = None
-
     def Ascending_ordering(self, list_elements):
         if not len(list_elements) == 0:
             count = 0
