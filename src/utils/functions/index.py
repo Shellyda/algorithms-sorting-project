@@ -1,0 +1,2 @@
+from generate_random_numbers import get_random_numbers
+from show_numbers import show_five_first_numbers
