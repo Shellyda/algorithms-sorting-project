@@ -1,4 +1,4 @@
-from numpy import copy, result_type
+from numpy import copy
 from time import sleep
 from utils.functions.index import get_random_numbers, show_five_first_numbers
 from utils.libraries.index import (
