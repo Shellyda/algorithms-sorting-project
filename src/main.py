@@ -1,4 +1,4 @@
-from numpy import copy
+from numpy import copy, result_type
 from time import sleep
 from utils.functions.index import get_random_numbers, show_five_first_numbers
 from utils.libraries.index import (
@@ -14,12 +14,36 @@ Merge = Merge_sort()
 Selection = Selection_sort()
 Insertion = Insertion_sort()
 
-def Show_Each_Case_Execution_Time(random_list):
+def Show_Each_Case_Execution_Time(aux_arr):
     print("  I) Elements NOT sorted execution time to sort from smallest to largest:")
-    Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, random_list[0])
-    Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, random_list[1])
-    Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, random_list[2])
-    Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, random_list[3])
+    resut_I_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
+    resut_I_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
+    resut_I_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
+    resut_I_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
+
+    print("  II) Elements SORTED execution time to sort from smallest to largest:")
+    resut_II_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
+    resut_II_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
+    resut_II_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
+    resut_II_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
+
+    print("\nE) Average of the runtimes in each scenario and algorithm:")
+    print(" - Bubble: {}".format(resut_I_Bubble + resut_II_Bubble/2.0))
+    print(" - Merge: {}".format(resut_I_Merge + resut_II_Merge/2.0))
+    print(" - Selection: {}".format(resut_I_Selection + resut_II_Selection/2.0))
+    print(" - Insertion: {}".format(resut_I_Insertion + resut_II_Insertion/2.0))
+
+def Cases_format(case, len_list):
+    aux_list = []
+    print("You choosed case {} - equal a {} length list of elements! :)".format(case, len_list))
+   
+    print("\nC) The ordering time in 3 scenarios:")
+    random_list = get_random_numbers(len_list)
+
+    for x in range(4):
+        aux_list.append(copy(random_list))
+           
+    Show_Each_Case_Execution_Time(aux_list)
 
 def main():
     case = 0
@@ -55,77 +79,14 @@ def main():
                 aux_list.append(copy(random_list))
            
             Show_Each_Case_Execution_Time(aux_list)
-            
-     
-        # elif case == 2:
-        #     print("\nRuntime:")
-        #     array = Get_duration_execution_time.creation_first_random_list(1000)
-        #     np.save("algoritmo2.npy", array)  # save
-
-        #     arrayBubble = np.load("algoritmo2.npy")  # load
-        #     arrayInsertion = np.load("algoritmo2.npy")
-        #     arrayMerge = np.load("algoritmo2.npy")
-        #     arraySelection = np.load("algoritmo2.npy")
-
-        #     print("\nBuble Sort:")
-        #     Get_duration_execution_time.ordering_time(arrayBubble, SP.Bubble_sort)
-
-        #     print("\nInsertion Sort:")
-        #     Get_duration_execution_time.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-        #     print("\nMerge Sort:")
-        #     Get_duration_execution_time.ordering_time(arrayMerge, SP.Merge_sort)
-
-        #     print("\nSelection Sort:")
-        #     Get_duration_execution_time.ordering_time(arraySelection, SP.selection_sort)
-
-        # elif case == 3:
-        #     print("\nRuntime:")
-        #     array = Get_duration_execution_time.creation_first_random_list(10000)
-
-        #     print("\nBuble Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
-
-        #     print("\nInsertion Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
-
-        #     print("\nMerge Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
-
-        #     print("\nSelection Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.selection_sort)
-
-        # elif case == 4:
-        #     print("\nRuntime:")
-        #     array = Get_duration_execution_time.creation_first_random_list(100000)
-
-        #     print("\nBuble Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
-
-        #     print("\nInsertion Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
-
-        #     print("\nMerge Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
-
-        #     print("\nSelection Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.selection_sort)
-
-        # elif case == 5:
-        #     print("\nRuntime:")
-        #     array = Get_duration_execution_time.creation_first_random_list(1000000)
-
-        #     print("\nBuble Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Bubble_sort)
-
-        #     print("\nInsertion Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Insertion_sort)
-
-        #     print("\nMerge Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.Merge_sort)
-
-        #     print("\nSelection Sort:")
-        #     Get_duration_execution_time.ordering_time(array, SP.selection_sort)
+        elif case == 2:
+            Cases_format(case,1000)
+        elif case == 3:
+            Cases_format(case,10000)
+        elif case == 4:
+            Cases_format(case,100000)
+        elif case == 5:
+            Cases_format(case,1000000)      
         elif case == 6:
             print("exiting program...")
         else:
