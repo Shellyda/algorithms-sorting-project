@@ -1,9 +1,49 @@
-import numpy as np
-from src.utils.library.sorting_power import Sorting_power as SP
-from src.utils.functions.show_numbers import show_five_first_numbers
-from src.utils.library.time import List
+from numpy import copy
 from time import sleep
+from utils.functions.index import get_random_numbers, show_five_first_numbers
+from utils.libraries.index import (
+    Bubble_sort,
+    Merge_sort,
+    Selection_sort,
+    Insertion_sort,
+    Get_duration_execution_time,
+)
 
+Bubble = Bubble_sort()
+Merge = Merge_sort()
+Selection = Selection_sort()
+Insertion = Insertion_sort()
+
+def Show_Each_Case_Execution_Time(aux_arr):
+    print("  I) Elements NOT sorted execution time to sort from smallest to largest:")
+    resut_I_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
+    resut_I_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
+    resut_I_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
+    resut_I_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
+
+    print("  II) Elements SORTED execution time to sort from smallest to largest:")
+    resut_II_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
+    resut_II_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
+    resut_II_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
+    resut_II_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
+
+    print("\nE) Average of the runtimes in each scenario and algorithm:")
+    print(" - Bubble: {}".format(resut_I_Bubble + resut_II_Bubble/2.0))
+    print(" - Merge: {}".format(resut_I_Merge + resut_II_Merge/2.0))
+    print(" - Selection: {}".format(resut_I_Selection + resut_II_Selection/2.0))
+    print(" - Insertion: {}".format(resut_I_Insertion + resut_II_Insertion/2.0))
+
+def Cases_format(case, len_list):
+    aux_list = []
+    print("You choosed case {} - equal a {} length list of elements! :)".format(case, len_list))
+   
+    print("\nC) The ordering time in 3 scenarios:")
+    random_list = get_random_numbers(len_list)
+
+    for x in range(4):
+        aux_list.append(copy(random_list))
+           
+    Show_Each_Case_Execution_Time(aux_list)
 
 def main():
     case = 0
@@ -20,129 +60,33 @@ def main():
         )
         case = int(input(">>>> What is your choice? "))
         if case == 1:
-            print(
-                """You choosed case 1 - equal a 100 length list of elements!
-A) The first five numbers of the set with NOT sorted elements:"""
-            )
-            random_list = List.recem(100)
-            show_five_first_numbers(random_list)
+            len_list = 100
+            aux_list = []
+            print("\nYou choosed case {} - equal a {} length list of elements! :)".format(case, len_list))
+            first_random_list = get_random_numbers(len_list)
 
-            np.save('algoritmo100.npy', random_list)  #save
-            arrayBubble = np.load('algoritmo100.npy')  # load
-            arrayInsertion = np.load('algoritmo100.npy')
-            arrayMerge = np.load('algoritmo100.npy')
-            arraySelection = np.load('algoritmo100.npy')
+            print("\nA) The first five numbers of the set with NOT sorted elements:")
+            show_five_first_numbers(first_random_list)
 
-            array5 = random_list[0:5]
-            #np.save('algoritmo5.npy', array5)  #save five
-            #arrayFive = np.load('algoritmo5.npy')
-            #print(arrayFive)
-            print("\nB) The first five numbers of sorted list:")
-            sorted_list = SP.Bubble_sort(array5)
+            print("\n\nB) The first five numbers of sorted list:")
+            sorted_list = Bubble.Ascending_ordering(first_random_list)
             show_five_first_numbers(sorted_list)
+            
+            print("\n\nC) The ordering time in 3 scenarios:")
+            random_list = get_random_numbers(len_list)
 
-            print("\nRuntime:")
-            print("\nBuble Sort:")
-            List.ordering_time(arrayBubble, SP.Bubble_sort)
-
-            print("\nInsertion Sort:")
-            List.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-            print("\nMerge Sort:")
-            List.ordering_time(arrayMerge, SP.Merge_sort)
-
-            print("\nSelection Sort:")
-            List.ordering_time(arraySelection, SP.selection_sort)
-
-
+            for x in range(4):
+                aux_list.append(copy(random_list))
+           
+            Show_Each_Case_Execution_Time(aux_list)
         elif case == 2:
-            print("\nRuntime:")
-            array = List.recem(1000)
-            np.save('algoritmo2.npy', array)  #save
-
-            arrayBubble = np.load('algoritmo2.npy') #load
-            arrayInsertion = np.load('algoritmo2.npy')
-            arrayMerge = np.load('algoritmo2.npy')
-            arraySelection = np.load('algoritmo2.npy')
-
-            print("\nBuble Sort:")
-            List.ordering_time(arrayBubble, SP.Bubble_sort)
-
-            print("\nInsertion Sort:")
-            List.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-            print("\nMerge Sort:")
-            List.ordering_time(arrayMerge, SP.Merge_sort)
-
-            print("\nSelection Sort:")
-            List.ordering_time(arraySelection, SP.selection_sort)
-
-
+            Cases_format(case,1000)
         elif case == 3:
-            print("\nRuntime:")
-            array = List.recem(10000)
-            np.save('algoritmo3.npy', array)  # save
-
-            arrayBubble = np.load('algoritmo3.npy')  # load
-            arrayInsertion = np.load('algoritmo3.npy')
-            arrayMerge = np.load('algoritmo3.npy')
-            arraySelection = np.load('algoritmo3.npy')
-
-            print("\nBuble Sort:")
-            List.ordering_time(arrayBubble, SP.Bubble_sort)
-
-            print("\nInsertion Sort:")
-            List.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-            print("\nMerge Sort:")
-            List.ordering_time(arrayMerge, SP.Merge_sort)
-
-            print("\nSelection Sort:")
-            List.ordering_time(arraySelection, SP.selection_sort)
-
+            Cases_format(case,10000)
         elif case == 4:
-            print("\nRuntime:")
-            array = List.recem(100000)
-            np.save('algoritmo4.npy', array)  # save
-
-            arrayBubble = np.load('algoritmo4.npy')  # load
-            arrayInsertion = np.load('algoritmo4.npy')
-            arrayMerge = np.load('algoritmo4.npy')
-            arraySelection = np.load('algoritmo4.npy')
-
-            print("\nBuble Sort:")
-            List.ordering_time(arrayBubble, SP.Bubble_sort)
-
-            print("\nInsertion Sort:")
-            List.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-            print("\nMerge Sort:")
-            List.ordering_time(arrayMerge, SP.Merge_sort)
-
-            print("\nSelection Sort:")
-            List.ordering_time(arraySelection, SP.selection_sort)
-
+            Cases_format(case,100000)
         elif case == 5:
-            print("\nRuntime:")
-            array = List.recem(1000000)
-            np.save('algoritmo5.npy', array)  # save
-
-            arrayBubble = np.load('algoritmo5.npy')  # load
-            arrayInsertion = np.load('algoritmo5.npy')
-            arrayMerge = np.load('algoritmo5.npy')
-            arraySelection = np.load('algoritmo5.npy')
-
-            print("\nBuble Sort:")
-            List.ordering_time(arrayBubble, SP.Bubble_sort)
-
-            print("\nInsertion Sort:")
-            List.ordering_time(arrayInsertion, SP.Insertion_sort)
-
-            print("\nMerge Sort:")
-            List.ordering_time(arrayMerge, SP.Merge_sort)
-
-            print("\nSelection Sort:")
-            List.ordering_time(arraySelection, SP.selection_sort)
+            Cases_format(case,1000000)      
         elif case == 6:
             print("exiting program...")
         else:
@@ -150,9 +94,7 @@ A) The first five numbers of the set with NOT sorted elements:"""
         sleep(1.5)
         print("=-=" * 22)
 
-
     print("End of program :) See you!")
 
 
 main()
-
