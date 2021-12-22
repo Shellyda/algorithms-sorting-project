@@ -14,5 +14,3 @@ class Bubble_sort:
                         )
                         swap_place = True
             return list_elements
-
-    # def descending ordering(self):
