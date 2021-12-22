@@ -8,7 +8,7 @@ class Get_duration_execution_time:
 
         result = end - begin
         print(
-            "   - {} runtime: {} seconds".format(
+            "   - {} runtime: {:.6f} seconds".format(
                 name_of_algorithm, result
             )
         )

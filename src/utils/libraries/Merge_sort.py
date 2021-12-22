@@ -1,12 +1,12 @@
 class Merge_sort:
     def Ascending_ordering(self, list_elements):
-        if not len(list_elements) == 0:
+        if len(list_elements) > 1:
             middle = len(list_elements) // 2
             left_part = list_elements[:middle]
             right_part = list_elements[middle:]
 
-            left_part.sort()
-            right_part.sort()
+            self.Ascending_ordering(left_part)
+            self.Ascending_ordering(right_part)
 
             Iterator_main = i = j = 0
 
