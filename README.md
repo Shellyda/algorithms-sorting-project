@@ -58,6 +58,8 @@
   > This folder contains the folders with **functions** and **library** used in `main.py` file
 ### /src/main.py
   > This file is where the application was built  
+### /src/app.py
+  > This file is where the main function is called  
 
 ## How To Run 
 
@@ -67,7 +69,7 @@
 
 At root folder 
 ```sh
-  /bin/python3 /Algorithms-Sorting-Project/src/main.py
+  /bin/python3 /Algorithms-Sorting-Project/src/app.py
 ```
 
 ## Contact
