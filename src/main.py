@@ -102,5 +102,3 @@ def main():
 
     print("End of program :) See you!")
 
-
-main()
