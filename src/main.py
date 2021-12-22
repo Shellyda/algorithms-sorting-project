@@ -15,19 +15,19 @@ Selection = Selection_sort()
 Insertion = Insertion_sort()
 
 def Show_Each_Case_Execution_Time(aux_arr):
-    print("  I) NOT sorted Elements execution time to sort from smallest to largest:")
+    print("  I) Elements NOT sorted execution time to sort from smallest to largest:")
     resut_I_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
     resut_I_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
     resut_I_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
     resut_I_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
 
-    print("  II) SORTED Elements execution time to sort from smallest to largest:")
+    print("  II) Elements SORTED execution time to sort from smallest to largest:")
     resut_II_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0])
     resut_II_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
     resut_II_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
     resut_II_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
     
-    print("  III) SORTED Elements execution time to sort from largest to smallest:")
+    print("  III) Elements SORTED execution time to sort from largest to smallest:")
     resut_III_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0][::-1])
     resut_III_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1][::-1])
     resut_III_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2][::-1])
@@ -46,7 +46,7 @@ def Cases_format(case, len_list):
     print("\nC) The ordering time in 3 scenarios:")
     random_list = get_random_numbers(len_list)
 
-    for i in range(4):
+    for x in range(4):
         aux_list.append(copy(random_list))
            
     Show_Each_Case_Execution_Time(aux_list)
