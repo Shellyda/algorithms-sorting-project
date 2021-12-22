@@ -55,7 +55,7 @@
 ### /src
   > This folder contains all content
 ### /src/utils
-  > This folder contains the folders with **functions** and **library** used in `main.py` file
+  > This folder contains the folders with **functions** and **libraries** used in `main.py` file
 ### /src/main.py
   > This file is where the application was built  
 
