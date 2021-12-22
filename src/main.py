@@ -26,12 +26,18 @@ def Show_Each_Case_Execution_Time(aux_arr):
     resut_II_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1])
     resut_II_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2])
     resut_II_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3])
-
+    
+    print("  III) Elements SORTED execution time to sort from largest to smallest:")
+    resut_III_Bubble = Get_duration_execution_time.Ordering("Bubble", Bubble.Ascending_ordering, aux_arr[0][::-1])
+    resut_III_Merge = Get_duration_execution_time.Ordering("Merge", Merge.Ascending_ordering, aux_arr[1][::-1])
+    resut_III_Selection = Get_duration_execution_time.Ordering("Selection", Selection.Ascending_ordering, aux_arr[2][::-1])
+    resut_III_Insertion = Get_duration_execution_time.Ordering("Insertion", Insertion.Ascending_ordering, aux_arr[3][::-1])
+    
     print("\nE) Average of the runtimes in each scenario and algorithm:")
-    print(" - Bubble: {}".format(resut_I_Bubble + resut_II_Bubble/2.0))
-    print(" - Merge: {}".format(resut_I_Merge + resut_II_Merge/2.0))
-    print(" - Selection: {}".format(resut_I_Selection + resut_II_Selection/2.0))
-    print(" - Insertion: {}".format(resut_I_Insertion + resut_II_Insertion/2.0))
+    print(" - Bubble: {:.6f} seconds".format(resut_I_Bubble + resut_II_Bubble + resut_III_Bubble/3.0))
+    print(" - Merge: {:.6f} seconds".format(resut_I_Merge + resut_II_Merge + resut_III_Merge/3.0))
+    print(" - Selection: {:.6f} seconds".format(resut_I_Selection + resut_II_Selection + resut_III_Selection/3.0))
+    print(" - Insertion: {:.6f} seconds".format(resut_I_Insertion + resut_II_Insertion + resut_III_Insertion/3.0))
 
 def Cases_format(case, len_list):
     aux_list = []
@@ -62,21 +68,21 @@ def main():
         if case == 1:
             len_list = 100
             aux_list = []
+            random_list = get_random_numbers(len_list)
+
+            for i in range(4):
+                aux_list.append(copy(random_list))
+           
             print("\nYou choosed case {} - equal a {} length list of elements! :)".format(case, len_list))
-            first_random_list = get_random_numbers(len_list)
 
             print("\nA) The first five numbers of the set with NOT sorted elements:")
-            show_five_first_numbers(first_random_list)
+            show_five_first_numbers(random_list)
 
             print("\n\nB) The first five numbers of sorted list:")
-            sorted_list = Bubble.Ascending_ordering(first_random_list)
+            sorted_list = Bubble.Ascending_ordering(random_list)
             show_five_first_numbers(sorted_list)
             
             print("\n\nC) The ordering time in 3 scenarios:")
-            random_list = get_random_numbers(len_list)
-
-            for x in range(4):
-                aux_list.append(copy(random_list))
            
             Show_Each_Case_Execution_Time(aux_list)
         elif case == 2:
