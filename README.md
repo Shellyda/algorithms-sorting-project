@@ -1,10 +1,6 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/citi-onboarding/TechCenter">
-    <img src="https://growthhouse.com.br/wp-content/uploads/2020/11/algoritmo.png" alt="Logo" width="800" height="auto">
-  </a>
-
   <h3 align="center">Algorithms Sorting Project</h3>
 
   <p align="center">
